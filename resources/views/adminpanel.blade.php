@@ -123,7 +123,7 @@
         </div><!--#sidebar-shortcuts-->
 
         <ul class="nav nav-list">
-            <li @if( isset($type) && (Request::is('*/'.$type.'') OR Request::is('*/'.$type.'/*'))) class="active open" @endif>
+            <li @if( Request::is('*/monitoring')) class="active" @endif>
                 <a href="{{ route('admin_index') }}">
                     <i class="icon-list"></i>
                     <span class="menu-text"> Мониторинг </span>
