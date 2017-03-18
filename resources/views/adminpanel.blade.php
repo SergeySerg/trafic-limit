@@ -133,7 +133,7 @@
             <li @if(Request::is('*/settings'))class="active"@endif>
                 <a href="{{ route('settings_index') }}">
                     <i class="icon-cog"></i>
-                    <span class="menu-text"> Налаштування </span>
+                    <span class="menu-text"> Настройки </span>
                 </a>
             </li>
 

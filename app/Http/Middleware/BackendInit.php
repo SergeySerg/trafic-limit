@@ -5,11 +5,10 @@ use App;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use App\Models\Article;
-use App\Models\Category;
-use App\Models\Text;
-use App\Models\Lang;
-use League\Flysystem\Config;
+//use League\Flysystem\Config;
+use App\Models\Setting;
+use Config;
+
 
 class BackendInit {
 
@@ -23,13 +22,19 @@ class BackendInit {
 
 	public function handle($request, Closure $next)
 	{
-		$admin_categories = Category::all();
 		//Подключение в Backend url типа
 		$url = url('admina6me');
+
+		Config::set('database.connections.mysql_external.host',getSetting('DB_HOST'));
+		Config::set('database.connections.mysql_external.database',getSetting('DB_DATABASE'));
+		Config::set('database.connections.mysql_external.username',getSetting('DB_USERNAME'));
+		Config::set('database.connections.mysql_external.password',getSetting('DB_PASSWORD'));
+		//dd(Config::get('database.connections.mysql_external'));
+
 		//Подключение в Backend version
 		view()->share('version', config('app.version'));
 		view()->share('url', $url);
-		view()->share('admin_categories', $admin_categories);
+
 		return $next($request);
 	}
 

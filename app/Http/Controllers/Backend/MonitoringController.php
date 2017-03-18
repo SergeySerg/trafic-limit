@@ -4,6 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Monitoring;
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Redirect;
+use Validator;
+use Config;
 
 class MonitoringController extends Controller {
 
@@ -26,7 +30,13 @@ class MonitoringController extends Controller {
 	 */
 	public function create()
 	{
-		dd('create');
+		$db_ext = DB::connection('mysql_external');
+		$companies = $db_ext->table('keitaro_campaigns')->get();
+
+		return view('backend.monitoring.edit')
+			->with(compact('companies'))
+			->with(['action_method' => 'post']);
+
 	}
 
 	/**
@@ -34,9 +44,26 @@ class MonitoringController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		//validation rules
+		$this->validate($request, [
+			'name' => 'required',
+			'limit' => 'required'
+		]);
+
+		$all = $request->all();
+
+		//Create new entry in DB
+		Monitoring::create($all);
+
+		//JSON respons when entry in DB successfully
+		return response()->json([
+			"status" => 'success',
+			"message" => 'Успешно добавлено',
+			"redirect" => route('admin_index')
+		]);
+
 	}
 
 	/**
@@ -58,7 +85,13 @@ class MonitoringController extends Controller {
 	 */
 	public function edit($id)
 	{
-		dd('edit');
+		$db_ext = DB::connection('mysql_external');
+		$companies = $db_ext->table('keitaro_campaigns')->get();
+
+		$company = Monitoring::where('id',$id)->first();
+		return view('backend.monitoring.edit')
+			->with(compact('company','companies'))
+			->with(['action_method' => 'put']);
 	}
 
 	/**
@@ -67,9 +100,29 @@ class MonitoringController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		dd('update');
+		//validation rules
+		$this->validate($request, [
+			'name' => 'required',
+			'limit' => 'required'
+		]);
+
+		$all = $request->all();
+
+		$company = Monitoring::where('id',$id)->first();
+		//Update all data in DB
+		$company->update($all);
+
+		//Save all data in DB
+		$company->save();
+
+		//JSON respons when entry in DB successfully
+		return response()->json([
+			"status" => 'success',
+			"message" => 'Успешно обновлено',
+			"redirect" => route('admin_index')
+		]);
 	}
 
 	/**
@@ -80,7 +133,19 @@ class MonitoringController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		dd('delete');
+		$company = Monitoring::where('id', $id)->first();
+		if($company AND $company->delete()){
+			return response()->json([
+				"status" => 'success',
+				"message" => 'Успешно удалено'
+			]);
+		}
+		else{
+			return response()->json([
+				"status" => 'error',
+				"message" => 'Возникла ошибка при удалении'
+			]);
+		}
 	}
 
 }

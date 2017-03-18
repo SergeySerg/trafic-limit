@@ -1,6 +1,6 @@
 
 $(function(){
-    var fieldsString = $('input[name="fields"]').val();
+    /*var fieldsString = $('input[name="fields"]').val();
     if(!fieldsString || fieldsString == ''){
         var fields = {
             base: [],
@@ -83,7 +83,7 @@ $(function(){
         }
         $('input[name="fields"]').val(JSON.stringify(fields));//запись в поле fields значений attributes
 
-/*Delete attributes*/
+/!*Delete attributes*!/
         $('.delete-attribute').on('click',function(event){
             event.preventDefault();
             var title_delete = $(this).attr('data-id');
@@ -92,9 +92,9 @@ $(function(){
             $('input[name="fields"]').val(JSON.stringify(fields));//запись в поле fields значений attributes
             console.log('Після видалення ==>', fields.attributes);
         });
-/*/Delete attributes*/
+/!*!/Delete attributes*!/
 
-/*Edit attributes*/
+/!*Edit attributes*!/
         $('.edit-attribute').on('click',function(event){
             event.preventDefault();
             $('#label-add').hide();
@@ -110,11 +110,11 @@ $(function(){
             //сворачивание формы добавления аттрибутов после успешного добавления
             $('div#collapseOne').removeClass("in").css("height",'0px');
         });
-/*/Edit attributes*/
+/!*!/Edit attributes*!/
     }
     renderAttributesTable();//Отрисовка таблицы
 
-/*Add new attributes*/
+/!*Add new attributes*!/
     $('.resource-add-attribute').on('click', function(event){
         event.preventDefault();
         $('#label-add').show();
@@ -148,9 +148,9 @@ $(function(){
         console.log('fields:', fields);
 
     });
-/*/Add new attributes*/
+/!*!/Add new attributes*!/
 
-/*Save Category*/
+/!*Save Category*!/
     $('.resource-save-category').on('click', function(event){
         get_wysiwyg();
         fields.base = [];
@@ -163,10 +163,10 @@ $(function(){
         console.log(attr_list);
 
         var data = new FormData($('form#resource-form-category')[0]);
-           /* var data = $('form#resource-form-category').serialize();
+           /!* var data = $('form#resource-form-category').serialize();
             var $input = $("#uploadimage");
             var fd = new FormData();
-            fd.append('img', $input.prop('files')[0]);*/
+            fd.append('img', $input.prop('files')[0]);*!/
         console.log(data);
         $.ajax({
             url: '',
@@ -208,8 +208,8 @@ $(function(){
         event.preventDefault();
 
     });
-/*/Save Category*/
-/*Delete Category*/
+/!*!/Save Category*!/
+/!*Delete Category*!/
     $('.category-delete').on('click', function(event){
         event.preventDefault();
         if(confirm('Разом з категорією будуть видалені всі записи в ній.\nВи впевнені?')){
@@ -239,10 +239,10 @@ $(function(){
             })
         }
         });
-/*/Delete Category/
+/!*!/Delete Category/*/
 /*Delete Article*/
     $('.resource-delete').on('click', function(event){
-        if(confirm('Ви впевнені?')){
+        if(confirm('Вы уверены?')){
             var $thisEl = $(this);
             $.ajax({
                 url: $thisEl.attr('href'),
@@ -267,10 +267,12 @@ $(function(){
 
 /*Save Article*/
     $('.resource-save').on('click', function(event){
-        //alert('tut');
-        get_wysiwyg();
+        var selected_company = $("#form-field-select-3 :selected").attr('data-id');
+        var company_id = $('input[name=company_id]').attr('value',selected_company);;
+
+        console.log('ID ===>', selected_company);
+        console.log('category_id ===>', company_id);
         var data = $('form#resource-form').serialize();
-        // var $thisEl = $(this);
         $.ajax({
             url: '',
             method: "POST",
@@ -280,7 +282,7 @@ $(function(){
                 if(data.status == 'success'){
                     alert(data.message);
                 }else{
-                    alert('Помилка: ' + data.message)
+                    alert('Ошибка: ' + data.message)
                 }
 
                 if(data.redirect){
@@ -293,7 +295,7 @@ $(function(){
             error: function(data, type, details){
                 console.info('Server error: ', arguments);
 
-                var message = 'Помилка збереження:\n';
+                var message = 'Ошибка сохранения:\n';
                 if(data.responseJSON){
                     for(var key in data.responseJSON){
                         message += data.responseJSON[key] + '\n';
@@ -308,19 +310,22 @@ $(function(){
         event.preventDefault();
 
     });
+    /*Selected company_id*/
+
+    /*/Selected company_id*/
 /*/Save Article*/
 /*show-hide image in category*/
-    $('#image-close,#image-edit').on('click', function(event){
+    /*$('#image-close,#image-edit').on('click', function(event){
         event.preventDefault();
         $('input[name=img_status]').prop('value',false);
         $('#show-image').hide();
         $('#image-upload').show();
-    });
+    });*/
 /*show-hide image in category*/
-    init_wysiwyg();
+   /* init_wysiwyg();*/
 });
 
-function init_wysiwyg(){
+/*function init_wysiwyg(){
     var id = '';
     var editors = $('textarea');
     editors.each(function(i, editor){
@@ -343,4 +348,4 @@ function get_wysiwyg(){
         }
 
     });
-}
+}*/

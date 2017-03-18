@@ -6,6 +6,7 @@ class Monitoring extends Model {
 
     protected $fillable=[
         'company_id',
+        'name',
         'type',
         'limit',
         'reported',

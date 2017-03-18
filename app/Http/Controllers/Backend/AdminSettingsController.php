@@ -108,9 +108,9 @@ class AdminSettingsController extends Controller {
 	{
 		//validation rules
 		$validator = Validator::make($request->all(), [
-			'title' => 'required|max:255',
+			/*'title' => 'required|max:255',*/
 			'description' => 'required|max:255',
-			'name' => 'required|max:255',
+			/*'name' => 'required|max:255',*/
 		]);
 		if ($validator->fails()) {
 			return Response::json(array(
@@ -133,7 +133,7 @@ class AdminSettingsController extends Controller {
 		//JSON respons when entry in DB successfully
 		return response()->json([
 			"status" => 'success',
-			"message" => 'Успішно збережено',
+			"message" => 'Успешно обновлено',
 			"redirect" => URL::route('settings_index')
 		]);
 	}

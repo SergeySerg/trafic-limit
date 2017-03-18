@@ -4,12 +4,12 @@
 @section('breadcrumbs')
     <li>
         <i class="icon-home home-icon"></i>
-        <a href="{{ route('admin_dashboard') }}">Головна</a>
+        <a href="{{ route('admin_dashboard') }}">Главная</a>
         <span class="divider">
             <i class="icon-angle-right arrow-icon"></i>
         </span>
     </li>
-    <li class="active">Налаштування</li>
+    <li class="active">Настройки</li>
 @stop
 
 @section('content')
@@ -19,16 +19,16 @@
             <div class="span12">
                 <!--PAGE CONTENT BEGINS-->
                 <div class="row-fluid">
-                    <h3 class="header smaller lighter blue">Налаштування</h3>
+                    <h3 class="header smaller lighter blue">Найстройки подключения к БД</h3>
 
                     <div class="table-header">
-                        Список елементів налаштуванння
-                        <a href="{{ route('settings_create') }}">
+                        Список элементов
+                        {{--<a href="{{ route('settings_create') }}">
                             <button class="btn btn-warning">
                                 <i class="icon-plus"></i>
                                 Додати елемент
                             </button>
-                        </a>
+                        </a>--}}
                     </div>
                     <table id="sample-table-2" class="table table-striped table-bordered table-hover">
                         <thead>
@@ -41,11 +41,11 @@
                                 Поле
                             </th>
                             <th class="center">
-                                Значення
+                                Значение
                             </th>
-                            <th class="hidden-phone center">
+                           {{-- <th class="hidden-phone center">
                                 Альтернативна назва
-                            </th>
+                            </th>--}}
 
                             <th></th>
                         </tr>
@@ -60,25 +60,25 @@
                                         </label>
                                     </td>
                                     <td>
-                                        <a href="{{ $url }}/settings/{{ $setting->id }}">{{ $setting->title }}</a>
+                                        <a href="{{ $url }}/settings/{{ $setting->id }}">{{ $setting->name }}</a>
                                     </td>
                                     <td>{{ $setting->description }}</td>
-                                    <td>{{ $setting->name }}</td>
+                                    {{--<td>{{ $setting->name }}</td>--}}
                                     <td class="td-actions">
                                         <div class="visible-phone visible-desktop action-buttons">
                                             <a class="green" href="{{ $url }}/settings/{{ $setting->id }}">
                                                 <i class="icon-pencil bigger-130"></i>
                                             </a>
-                                            <a href='{{ $url }}/settings/{{ $setting->id }}' data-id='{{ $setting->id }}' class='resource-delete'>
+                                            {{--<a href='{{ $url }}/settings/{{ $setting->id }}' data-id='{{ $setting->id }}' class='resource-delete'>
                                                 <i class="icon-trash bigger-130"></i>
-                                            </a>
+                                            </a>--}}
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    @if (count($settings_deleted))
+                   {{-- @if (count($settings_deleted))
                         <h4 class="pink">
 
                             <a href="#modal-table" role="button" class="green" data-toggle="modal">
@@ -140,7 +140,7 @@
                                 </div>
                             </div><!--PAGE CONTENT ENDS-->
                         </h4>
-                    @endif
+                    @endif--}}
                 </div>
 
             </div><!--/.span-->
@@ -150,10 +150,10 @@
     <script>
         $(function(){
             var oTable1 = $('#sample-table-2').dataTable( {
-                "aaSorting": [[4,'desc']],
+                "aaSorting": [[3,'desc']],
                 "aoColumns": [
                     { "bSortable": false },
-                    null, null,null,
+                    null, null,
                     { "bSortable": false }
                 ] } );
         });

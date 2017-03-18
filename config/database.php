@@ -63,6 +63,17 @@ return [
 			'prefix'    => '',
 			'strict'    => false,
 		],
+		'mysql_external' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_EXT_HOST', 'localhost'),
+			'database'  => env('DB_EXT_DATABASE', 'citymoto_trafic'),
+			'username'  => env('DB_EXT_USERNAME', 'citymoto_trafic'),
+			'password'  => env('DB_EXT_PASSWORD', '2eads59b'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
 
 		'pgsql' => [
 			'driver'   => 'pgsql',

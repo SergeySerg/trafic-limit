@@ -55,21 +55,21 @@
                                     </label>
                                 </td>
                                 <td class="center">
-                                    <a href="{{ route('admin_edit') }}"> {{ $monitoring_company->name }} </a>
+                                    <a href="{{ $url }}/monitoring/{{ $monitoring_company->id }}"> {{ $monitoring_company->name }} </a>
                                 </td>
                                 <td  class="center"> {{ $monitoring_company->type }} </td>
                                 <td class="center">
                                     @if($monitoring_company->reported)
-                                        <span class="badge badge-important"><i class="icon-remove"></i></span>
-                                    @else
                                         <span class="badge badge-success"><i class="icon-ok bigger-120"></i></span>
+                                    @else
+                                        <span class="badge badge-important"><i class="icon-remove"></i></span>
                                     @endif
                                 </td>
                                 <td  class="center"> {{ $monitoring_company->limit }} </td>
                                 <td class="center hidden-phone">{{ ($monitoring_company->comparison) ? "Менее" : 'Более' }}</td>
                                 <td class="td-actions">
                                     <div class="hidden-phone visible-desktop action-buttons">
-                                        <a class="green" href="{{ route('admin_edit')}}">
+                                        <a class="green" href="{{ $url }}/monitoring/{{ $monitoring_company->id }}">
                                             <i class="icon-pencil bigger-130"></i>
                                         </a>
 
