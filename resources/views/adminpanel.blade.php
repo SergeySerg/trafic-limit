@@ -49,7 +49,7 @@
     <link href="{{ asset('/css/backend/ace-skins.min.css') }}" rel="stylesheet">
     <!--Font Awesome CDN-->
 
-    <link rel="stylesheet" href="{{ asset('/libs/font-awesome-4.7.0/css/font-awesome.min.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/libs\font-awesome-4.7.0\css\font-awesome.min.css') }}" >
 
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="{{ asset('/css/backend/ace-ie.min.css') }} >
