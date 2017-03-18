@@ -110,7 +110,7 @@ class AdminSettingsController extends Controller {
 		$validator = Validator::make($request->all(), [
 			/*'title' => 'required|max:255',*/
 			'description' => 'required|max:255',
-			/*'name' => 'required|max:255',*/
+			'name' => 'required|max:255',
 		]);
 		if ($validator->fails()) {
 			return Response::json(array(

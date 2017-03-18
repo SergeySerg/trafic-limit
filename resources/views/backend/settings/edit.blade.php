@@ -53,7 +53,7 @@
                     <label class="control-label" for="title">Название поля</label>
 
                     <div class="controls">
-                        <input type="text" name="name" value='{{ $setting -> name or '' }}' placeholder="Название" disabled/>
+                        <input type="text" name="name" value='{{ $setting -> name or '' }}' placeholder="Название" readonly/>
                     </div>
                 </div>
 
