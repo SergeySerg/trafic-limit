@@ -4,7 +4,7 @@
 
 	@if (count($errors) > 0)
 	<div class="alert alert-danger">
-		<strong>Помилка</strong> Не вдалось увійти.<br><br>
+		<strong>Ошибка</strong> Не удалось войти.<br><br>
 		<ul>
 			@foreach ($errors->all() as $error)
 			<li>{{ $error }}</li>
@@ -18,7 +18,7 @@
 		<div class="widget-main">
 			<h4 class="header blue lighter bigger">
 				<i class="icon-coffee green"></i>
-				Введіть логін та пароль
+				Введите логин и пароль
 			</h4>
 
 			<div class="space-6"></div>
@@ -45,7 +45,7 @@
 				<div class="clearfix">
 					<label class="inline">
 						<input type="checkbox" name="remember" />
-						<span class="lbl"> Запам'ятати мене</span>
+						<span class="lbl"> Запомнить меня</span>
 					</label>
 
 					<button class="width-35 pull-right btn btn-small btn-primary">
@@ -64,7 +64,7 @@
 			<div>
                 <a href="{{ url('/password/email') }}"  class="forgot-password-link">
                     <i class="icon-arrow-left"></i>
-                    Забули пароль?
+                    Забыли пароль?
                 </a>
             </div>
 

@@ -36,7 +36,7 @@
     <div class="content">
         <div class="title">404 Page Not Found</div>
         <div style="font-size: 32px">
-            <a href=" {{ url() }} "> Перейти на Главную </a>
+            <a href=" {{ route('admin_dashboard') }} "> Перейти на Главную </a>
         </div>
     </div>
 </div>

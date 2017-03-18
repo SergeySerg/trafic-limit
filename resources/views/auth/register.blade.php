@@ -64,7 +64,7 @@
 </div>-->
 @if (count($errors) > 0)
 <div class="alert alert-danger">
-	<strong>Помилка</strong> There were some problems with your input.<br><br>
+	<strong>Ошибка</strong> There were some problems with your input.<br><br>
 	<ul>
 		@foreach ($errors->all() as $error)
 		<li>{{ $error }}</li>
@@ -77,11 +77,11 @@
 		<div class="widget-main">
 			<h4 class="header green lighter bigger">
 				<i class="icon-group blue"></i>
-				Реєстрація нового користувача
+				Регистрация нового пользователя
 			</h4>
 
 			<div class="space-6"></div>
-			<p> Введіть дані для реєстрації </p>
+			<p> Введите данные для регистрации </p>
 
 			<form role="form" method="POST" action="{{ url('/auth/register') }}" />
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -127,11 +127,11 @@
 				<div class="clearfix">
 					<button type="reset" class="width-30 pull-left btn btn-small">
 						<i class="icon-refresh"></i>
-						Скидання
+						Сброс
 					</button>
 
 					<button class="width-65 pull-right btn btn-small btn-success">
-						Реєстрація
+						Регистрация
 						<i class="icon-arrow-right icon-on-right"></i>
 					</button>
 				</div>
@@ -142,7 +142,7 @@
 		<div class="toolbar center">
 			<a href="{{ url('/auth/login') }}"  class="back-to-login-link">
 				<i class="icon-arrow-left"></i>
-				Повернутися до логування
+				Вернуться к логированию
 			</a>
 		</div>
 	</div><!--/widget-body-->

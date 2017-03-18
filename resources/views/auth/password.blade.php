@@ -56,7 +56,7 @@
 
 	@if (count($errors) > 0)
 	<div class="alert alert-danger">
-		<strong>Помилка</strong> Не вдалось надіслати.<br><br>
+		<strong>Ошибка</strong> Не удалось отправить.<br><br>
 		<ul>
 			@foreach ($errors->all() as $error)
 			<li>{{ $error }}</li>
@@ -69,12 +69,12 @@
 			<div class="widget-main">
 				<h4 class="header red lighter bigger">
 					<i class="icon-key"></i>
-					Відновлення паролю
+					Возобновления пароля
 				</h4>
 
 				<div class="space-6"></div>
 				<p>
-					Ведіть свою адресу елетронної пошти і отримайте інструкцію
+					Введите свой адрес электронной почты и получите инструкцию
 				</p>
 
 				<form role="form" method="POST" action="{{ url('/password/email') }}"/>
@@ -90,7 +90,7 @@
 					<div class="clearfix">
 						<button class="width-35 pull-right btn btn-small btn-danger">
 							<i class="icon-lightbulb"></i>
-							Надіслати
+							Отправить
 						</button>
 					</div>
 				</fieldset>
@@ -99,7 +99,7 @@
 
 			<div class="toolbar center">
 				<a href="{{ url('/auth/login') }}"  class="back-to-login-link">
-					Повернутися до логування
+					Вернуться к логированию
 					<i class="icon-arrow-right"></i>
 				</a>
 			</div>
