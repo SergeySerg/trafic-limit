@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect('localhost','root','','trafic_limit_db');
+$link = mysqli_connect('citymoto.mysql.ukraine.com.ua','citymoto_traloc','jasu58fn','citymoto_traloc');
 
 if(mysqli_connect_errno()){
     echo 'Ошибка в подключении к БД';
@@ -29,7 +29,7 @@ $exp_companies = mysqli_fetch_all($result_exp, 1);
 foreach($local_companies as $local_company ){
     foreach($exp_companies as $exp_company){
         if($local_company['company_id'] == $exp_company['campaign_id'] && $local_company['reported'] == 1 ){
-            if($local_company['type'] == "Продажи"){
+            if($local_company['type'] == "sales"){
                 $val = $exp_company['sales'];
                 if($local_company['comparison'] == 0){
                     echo $val .' >' .$local_company['limit'];
@@ -44,7 +44,7 @@ foreach($local_companies as $local_company ){
                     }
                 }
             }
-            elseif($local_company['type'] = "Расход"){
+            elseif($local_company['type'] == "cost"){
                 $val = $exp_company['cost'];
                 if($local_company['comparison'] == 0){
                     echo $val .' >' .$local_company['limit'];
