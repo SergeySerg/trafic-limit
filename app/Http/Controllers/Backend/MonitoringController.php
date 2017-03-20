@@ -30,9 +30,7 @@ class MonitoringController extends Controller {
 	 */
 	public function create()
 	{
-		$db_ext = DB::connection('mysql_external');
-		$companies = $db_ext->table('keitaro_campaigns')->get();
-
+		$companies = $this->connectExpDb();
 		return view('backend.monitoring.edit')
 			->with(compact('companies'))
 			->with(['action_method' => 'post']);
@@ -85,9 +83,7 @@ class MonitoringController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$db_ext = DB::connection('mysql_external');
-		$companies = $db_ext->table('keitaro_campaigns')->get();
-
+		$companies = $this->connectExpDb();
 		$company = Monitoring::where('id',$id)->first();
 		return view('backend.monitoring.edit')
 			->with(compact('company','companies'))
@@ -148,4 +144,15 @@ class MonitoringController extends Controller {
 		}
 	}
 
+	public function connectExpDb(){
+		// Test database connection
+		try {
+			DB::connection('mysql_external')->getPdo();
+			$db_ext = DB::connection('mysql_external');
+			$companies = $db_ext->table('keitaro_campaigns')->get();
+			return $companies;
+		} catch (\Exception $e) {
+			echo ("Could not connect to the database - " .  DB::connection()->getDatabaseName() . "  Please check your configuration. Code error -> " . $e->getCode() );
+		}
+	}
 }

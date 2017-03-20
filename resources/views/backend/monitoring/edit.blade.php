@@ -40,6 +40,7 @@
                         <label class="control-label" for="form-field-select-3">Выбор компании</label>
                         <div class="controls">
                             <select class="chzn-select" name="name" id="form-field-select-3" data-placeholder="Выберете компанию...">
+
                                 @if(isset($company))
                                     <option value="{{$company->name }}" data-id="{{$company->company_id }}" />{{ $company->name }}
                                 @else

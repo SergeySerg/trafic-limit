@@ -9,7 +9,6 @@ use Illuminate\Pagination\Paginator;
 use App\Models\Setting;
 use Config;
 
-
 class BackendInit {
 
 	/**
@@ -24,7 +23,6 @@ class BackendInit {
 	{
 		//Подключение в Backend url типа
 		$url = url('admina6me');
-
 		Config::set('database.connections.mysql_external.host',getSetting('DB_HOST'));
 		Config::set('database.connections.mysql_external.database',getSetting('DB_DATABASE'));
 		Config::set('database.connections.mysql_external.username',getSetting('DB_USERNAME'));
