@@ -60,8 +60,8 @@
                         <label class="control-label" for="form-field-select-1">Тип фильтра</label>
                         <div class="controls">
                             <select id="form-field-select-1" name="type">
-                                <option value="Расход" @if ( isset($company) AND ($company->type == "Расход")) selected @endif/>Расход
-                                <option value="Продажи" @if ( isset($company) AND ($company->type == "Продажи")) selected @endif />Продажи
+                                <option value="cost" @if ( isset($company) AND ($company->type == "cost")) selected @endif/>Расход
+                                <option value="sales" @if ( isset($company) AND ($company->type == "sales")) selected @endif />Продажи
                             </select>
                         </div>
                     </div>

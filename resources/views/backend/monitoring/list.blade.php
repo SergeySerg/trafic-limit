@@ -57,7 +57,7 @@
                                 <td class="center">
                                     <a href="{{ $url }}/monitoring/{{ $monitoring_company->id }}"> {{ $monitoring_company->name }} </a>
                                 </td>
-                                <td  class="center"> {{ $monitoring_company->type }} </td>
+                                <td  class="center"> {{ ($monitoring_company->type) == 'sales' ? "Продажи" : 'Расход'}} </td>
                                 <td class="center">
                                     @if($monitoring_company->reported)
                                         <span class="badge badge-success"><i class="icon-ok bigger-120"></i></span>
