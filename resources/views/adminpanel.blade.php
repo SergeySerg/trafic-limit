@@ -66,7 +66,6 @@
     <div class="navbar-inner">
         <div class="container-fluid">
             <a href="{{ route('admin_dashboard') }}" class="brand">
-               <img style="display: block;position: absolute;margin-top: -3px;" width="30px" src="{{ asset('/img/backend/favicon.png') }}" alt="{{$_SERVER['HTTP_HOST']}}" />
                 <small style="margin-left: 40px;">
                     Кeitaro TDS
                 </small>

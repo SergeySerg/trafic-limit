@@ -25,11 +25,11 @@
                     </h3>
 
                     <div class="table-header">
-                        Список компаний
+                        Список кампаний
                         <a href="{{ route('admin_create') }}" class="line_none">
                             <button class="btn btn-warning">
                                 <i class="icon-plus"></i>
-                                Добавить компанию для мониторинга
+                                Добавить новый мониторинг
                             </button>
                         </a>
                     </div>
@@ -37,7 +37,7 @@
                         <thead>
                         <tr>
                             <th class="center">ID</th>
-                            <th class="center">Название компании</th>
+                            <th class="center">Название кампании</th>
                             <th class="center">Тип</th>
                             <th class="center">Статус</th>
                             <th class="center">Лимит</th>

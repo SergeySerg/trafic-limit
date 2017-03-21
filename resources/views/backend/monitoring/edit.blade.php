@@ -18,7 +18,7 @@
     @if(isset($company))
         <li class="active">{{$company->name}}</li>
     @else
-        <li class="active">Добавить новую компанию</li>
+        <li class="active">Добавить новую кампанию</li>
     @endif
 @stop
 
@@ -37,7 +37,7 @@
                 <form class="form-horizontal" id="resource-form" method="POST" action="" />
 
                     <div class="control-group">
-                        <label class="control-label" for="form-field-select-3">Выбор компании</label>
+                        <label class="control-label" for="form-field-select-3">Выбор кампании</label>
                         <div class="controls">
                             <select class="chzn-select" name="name" id="form-field-select-3" data-placeholder="Выберете компанию...">
 

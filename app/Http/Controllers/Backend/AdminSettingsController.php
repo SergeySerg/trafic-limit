@@ -51,7 +51,7 @@ class AdminSettingsController extends Controller {
 	{
 		//validation rules
 		$validator = Validator::make($request->all(), [
-			'title' => 'required|max:255',
+			/*'title' => 'required|max:255',*/
 			'description' => 'required|max:255',
 			'name' => 'required|max:255',
 

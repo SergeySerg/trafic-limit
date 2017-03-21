@@ -19,7 +19,7 @@
             <div class="span12">
                 <!--PAGE CONTENT BEGINS-->
                 <div class="row-fluid">
-                    <h3 class="header smaller lighter blue">Настройки подключения к БД</h3>
+                    <h3 class="header smaller lighter blue">Настройки</h3>
 
                     <div class="table-header">
                         Список элементов

@@ -2,7 +2,7 @@
 $link = mysqli_connect('citymoto.mysql.ukraine.com.ua','citymoto_traloc','jasu58fn','citymoto_traloc');
 
 if(mysqli_connect_errno()){
-    echo 'Ошибка в подключении к БД';
+    mail("vor.ser87@gmail.com", 'Ошибка в подключении к БД ', 'Временно недостен контроль лимитов кампаний' );
     exit();
 }
 
@@ -16,6 +16,8 @@ $local_companies = mysqli_fetch_all($result, 1);
 $link_exp = mysqli_connect('citymoto.mysql.ukraine.com.ua','citymoto_trafic','2eads59b','citymoto_trafic');
 
 if(mysqli_connect_errno()){
+    mail("vor.ser87@gmail.com", 'Ошибка в подключении к БД ', 'Временно недостен мониторинг кампаний Keitaro TDS' );
+
     echo 'Ошибка в подключении к  Exp-БД';
     exit();
 }
@@ -34,7 +36,7 @@ foreach($local_companies as $local_company ){
                 if($local_company['comparison'] == 0){
                     echo $val .' >' .$local_company['limit'];
                     if($val > $local_company['limit']){
-                        mail("vor.ser87@gmail.com", "Мониторинг лимитов Keitaro TDS", 'Компания ' . $local_company['name'] . ' достигла лимита ' . $local_company['limit'] .' по фильтру -  ' .$local_company['type']  );
+                        mail("vor.ser87@gmail.com", "Мониторинг лимитов Keitaro TDS", 'Компания ' . $local_company['name'] . ' достигла указанного лимита (' . $local_company['limit'] .') в категории -  ' .$local_company['type']  );
                     }
                 }
                 elseif($local_company['comparison'] == 1){
