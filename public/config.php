@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ПК
- * Date: 22.03.2017
- * Time: 18:51
- */
+$db_host = 'citymoto.mysql.ukraine.com.ua';
+$db_username = 'citymoto_traloc';
+$db_password = 'jasu58fn';
+$db_database = 'citymoto_traloc';

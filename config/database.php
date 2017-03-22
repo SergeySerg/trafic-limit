@@ -1,5 +1,5 @@
 <?php
-
+require('../public/config.php');
 return [
 
 	/*
@@ -54,10 +54,10 @@ return [
 
 		'mysql' => [
 			'driver'    => 'mysql',
-			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'forge'),
-			'username'  => env('DB_USERNAME', 'forge'),
-			'password'  => env('DB_PASSWORD', ''),
+			'host'      => env('DB_HOST', $db_host),
+			'database'  => env('DB_DATABASE', $db_database),
+			'username'  => env('DB_USERNAME', $db_username ),
+			'password'  => env('DB_PASSWORD', $db_password),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
