@@ -93,7 +93,7 @@ function sendEmail($email, $company_name, $comparison, $limit, $type){
     elseif($comparison == 1){
         $direction = "<";
     }
-    mail($email, "Мониторинг лимитов Keitaro TDS", 'Кампания ' . $company_name  . ' достигла указанного значения лимита - (' . $direction . ' ' . $limit  .') в категории -  ' . $type_category  );
+    mail($email, "Мониторинг лимитов Keitaro TDS", 'Кампания ' . $company_name  . ' достигла указанного значения лимита - (' . $direction . ' ' . $limit  .') в категории -  ' . $type_category, "Content-type:text/html;charset=utf-8"  );
 }
 function updateStatus($id, $link){
     $sql_change_status = "update monitorings set reported='0' where id='".$id."'";
